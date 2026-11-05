@@ -1,0 +1,245 @@
+/* ===== CONTACT INFO PANEL ===== */
+.contact-info-panel {
+  width: var(--info-panel-width);
+  min-width: var(--info-panel-width);
+  height: 100%;
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInfoPanel 0.3s ease;
+}
+
+@keyframes slideInfoPanel {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.info-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 62px;
+}
+
+.info-panel-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.info-panel-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Profile section */
+.info-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px 20px;
+  gap: 12px;
+  background: linear-gradient(to bottom, var(--accent-light), transparent);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-avatar-wrap {
+  position: relative;
+}
+
+.info-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.info-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  background: var(--accent-light);
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Info sections */
+.info-section {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 0;
+}
+
+.info-row-icon {
+  color: var(--icon-color);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.info-row-content {}
+
+.info-row-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.info-row-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Media grid */
+.info-media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.info-media-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: var(--bg-tertiary);
+}
+
+.info-media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.info-media-item:hover img {
+  transform: scale(1.05);
+}
+
+.info-media-count {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+.info-no-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Action buttons in info panel */
+.info-actions {
+  padding: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.info-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.info-action-btn.danger {
+  background: rgba(234,57,67,0.1);
+  color: var(--danger);
+}
+
+.info-action-btn.danger:hover {
+  background: var(--danger);
+  color: white;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--bg-hover);
+  color: var(--accent);
+}
+
+/* ===== MUTE BUTTON ===== */
+.mute-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  transition: var(--transition);
+}
+
+.mute-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent);
+}
+
+.mute-btn.muted {
+  color: var(--danger);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .contact-info-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 30;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-panel {
+    width: 100% !important;
+    min-width: 100% !important;
+    z-index: 40;
+  }
+}
